@@ -50,14 +50,28 @@ public class Translator {
         clothes_map.put("맨투맨", "sweatshirts");
         clothes_map.put("셔츠", "shirts");
         clothes_map.put("니트", "knit");
+        
         clothes_map.put("반팔 면 티셔츠", "short-sleeve T-shirt");
+        clothes_map.put("반팔면티셔츠", "short-sleeve T-shirt");
+        
         clothes_map.put("반팔 카라티셔츠", "collar-tshirt");
+        clothes_map.put("반팔카라티셔츠", "collar-tshirt");
+        clothes_map.put("반팔카라티", "collar-tshirt");
+        
         clothes_map.put("반팔셔츠", "short-sleeve-shirt");
+        clothes_map.put("반팔티", "short-sleeve-shirt");
+        
         clothes_map.put("면바지", "cotton-pants");
         clothes_map.put("청바지", "jeans");
         clothes_map.put("운동복/산악바지", "hiking-pants");
+        clothes_map.put("운동복바지/산악바지", "hiking-pants");
+        
         clothes_map.put("면 반바지", "cotton-shorts");
+        clothes_map.put("면반바지", "cotton-shorts");
+        
         clothes_map.put("나일론 바지", "nylon-trousers");
+        clothes_map.put("나일론바지", "nylon-trousers");
+        
         clothes_map.put("통바지", "wide-pants");
         clothes_map.put("치마", "skirt");
         
@@ -66,6 +80,7 @@ public class Translator {
         age_map.put("10대", "An teenager");
         age_map.put("20대", "An 20s");
         age_map.put("30대", "An 30s");
+        age_map.put("33대", "An 30s");
         age_map.put("40대", "An 40s");
         age_map.put("50대", "An 50s");
         age_map.put("60대", "An 60s");
