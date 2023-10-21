@@ -62,6 +62,7 @@ public class Translator {
         clothes_map.put("치마", "skirt");
         
         age_map.put("10대 미만", "An under 10s");
+        age_map.put("10대미만", "An under 10s");
         age_map.put("10대", "An teenager");
         age_map.put("20대", "An 20s");
         age_map.put("30대", "An 30s");

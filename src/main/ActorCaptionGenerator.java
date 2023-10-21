@@ -93,33 +93,50 @@ public class ActorCaptionGenerator {
 		StringBuilder k = new StringBuilder();
 		StringBuilder e = new StringBuilder();
 		
+		//[중요] 한 언어 캡션 작업 할떄는 다른 언어 주석처리하면 됨.
 		
 		//한글캡션
-		for(Actor a : actor_list) {
-			for(int i=0;i<a.getAct_pose().size();i++) {
-				for(int j=0;j<t.getCamKr().length;j++) {
-					//k.append(a.getActor_no()+" ");//테스트
-					k.append("흰색 배경에서 ");
-					if(a.getAge().contains("미만"))k.append("10대 미만");
-					else k.append(a.getAge()+" ");
-					k.append(a.getGender()+"가 ");
-					k.append(a.getTop()+"와 ");
-					k.append(a.getBottom()+"를 입고 ");
-					k.append(t.getPose_kr_map().get(a.getAct_pose().get(i))+"를 취하고 있는 ");
-					String[] camKR = t.getCamKr();
-					k.append(camKR[j]);
-					System.out.println(k.toString());
-					k.setLength(0);
-				}
-			}
-		}
-		System.out.println("==========================================================================================");
-		System.out.println("==========================================================================================");
-		System.out.println("==========================================================================================");
-		System.out.println("==========================================================================================");
+//		for(Actor a : actor_list) {
+//			for(int i=0;i<a.getAct_pose().size();i++) {
+//				for(int j=0;j<t.getCamKr().length;j++) {
+//					//k.append(a.getActor_no()+" ");//테스트
+//					k.append("흰색 배경에서 ");
+//					if(a.getAge().contains("미만"))k.append("10대 미만");
+//					else k.append(a.getAge()+" ");
+//					k.append(a.getGender()+"가 ");
+//					k.append(a.getTop()+"와 ");
+//					k.append(a.getBottom()+"를 입고 ");
+//					k.append(t.getPose_kr_map().get(a.getAct_pose().get(i))+"를 취하고 있는 ");
+//					String[] camKR = t.getCamKr();
+//					k.append(camKR[j]);
+//					System.out.println(k.toString());
+//					k.setLength(0);
+//				}
+//			}
+//		}
+
 		//영어캡션
 		for(Actor a : actor_list) {
-			
+			int index =1;
+			for(int i=0;i<a.getAct_pose().size();i++) {
+				for(int j=0;j<t.getCamEng().length;j++) {
+					//e.append(a.getActor_no()+" "); (테스트용)
+					e.append(t.getAge_map().get(a.getAge())+" ");
+					if(a.getGender().equals("남자")) e.append("man ");
+					else e.append("women ");
+					e.append("is taking position on white backround; ");
+					e.append(t.getPose_eng_map().get(a.getAct_pose().get(i))+", ");
+					e.append("wearing a ");
+					e.append(t.getClothes_map().get(a.getTop())+", ");
+					e.append("and a pair of ");
+					e.append(t.getClothes_map().get(a.getBottom())+" ");
+					String[] camENG = t.getCamEng();
+					e.append(camENG[j]);
+					//e.append("==>"+index++); (테스트용)
+					System.out.println(e.toString());
+					e.setLength(0);
+				}
+			}
 		}
 		
 		
