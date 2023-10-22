@@ -934,14 +934,7 @@ public class ActorCaptionGenerator {
 				+ "1802	70대	 여자	 반팔카라티	 나일론 바지/슬랙스\r\n"
 				+ "1827	60대	 여자	 반팔티	 나일론 바지/슬랙스\r\n"
 				+ "1851	70대	 여자	 반팔티	 나일론 바지/슬랙스";
-		
-		//메모!!!!!!
-		//메모!!!!!! 엑터번호랑 연령대 없는것 사이에 빈칸떔에 패스데이터 적용안된걸수도 있음.
-		//메모!!!!!! contains 쓰던지 알아서.
-		//메모!!!!!!
-		
-		
-		
+				
 		String[] data_input_arr2 = data_input2.split("\r\n");
 		for(int i=0;i<data_input_arr2.length;i++) {
 
@@ -949,6 +942,7 @@ public class ActorCaptionGenerator {
 			if(data_input_arr2[i].contains("나일론 바지/슬랙스")) data_input_arr2[i] = data_input_arr2[i].replace("나일론 바지/슬랙스", "나일론바지");
 			if(data_input_arr2[i].contains("면 반바지")) data_input_arr2[i] = data_input_arr2[i].replace("면 반바지", "면반바지");
 			if(data_input_arr2[i].contains("반팔 셔츠")) data_input_arr2[i] = data_input_arr2[i].replace("반팔 셔츠", "반팔셔츠");
+			if(data_input_arr2[i].contains("후드티")) data_input_arr2[i] = data_input_arr2[i].replace("후드티", "맨투맨");
 		}
 		
 		
@@ -983,19 +977,24 @@ public class ActorCaptionGenerator {
 //			for(int i=0;i<a.getAct_pose().size();i++) {
 //				for(int j=0;j<t.getCamKr().length;j++) {
 //					//패스데이터
-//					if(a.getActor_no()=="0493" || a.getActor_no()=="0996" || a.getActor_no()=="1240" || a.getActor_no()=="1258") continue;
+//					if(a.getActor_no().equals("0493") || a.getActor_no().equals("0996") || a.getActor_no().equals("1240") || a.getActor_no().equals("1258")) continue;
 //					
 //					//k.append(a.getActor_no()+" ");//테스트
-//					k.append("["+a.getAge()+" "+a.getActor_no()+"]");
+//					//System.out.print("["+a.getActor_no()+" "+a.getAge()+" "+a.getTop()+" "+a.getBottom()+"]"); //테스트용
 //					k.append("흰색 배경에서 ");
 //					if(a.getAge().contains("미만"))k.append("10대 미만");
 //					else k.append(a.getAge()+" ");
 //					k.append(a.getGender()+"가 ");
-//					k.append(a.getTop()+"와 ");
+//					
+//					if(a.getTop().contains("맨투맨")) {
+//						k.append(a.getTop()+"과 ");
+//					}else k.append(a.getTop()+"와 ");
+//					
 //					k.append(a.getBottom()+"를 입고 ");
 //					k.append(t.getPose_kr_map().get(a.getAct_pose().get(i))+"를 취하고 있는 ");
 //					String[] camKR = t.getCamKr();
-//					k.append(camKR[j]);
+//					k.append(camKR[j]+".");
+//					
 //					System.out.println(k.toString());
 //					k.setLength(0);
 //				}
@@ -1007,11 +1006,10 @@ public class ActorCaptionGenerator {
 			int index =1;
 			for(int i=0;i<a.getAct_pose().size();i++) {
 				for(int j=0;j<t.getCamEng().length;j++) {
-					//패스데이터
-					if(a.getActor_no()=="0493" || a.getActor_no()=="0996" || a.getActor_no()=="1240" || a.getActor_no()=="1258") continue;
-					
-					System.out.print("["+a.getAge()+" "+a.getTop()+" "+a.getBottom()+"]");
-					//e.append(a.getActor_no()+" "); (테스트용)
+					//패스데이터 (0493,0996,1240,1258)
+					if(a.getActor_no().equals("0493") || a.getActor_no().equals("0996") || a.getActor_no().equals("1240") || a.getActor_no().equals("1258")) continue;
+
+					//System.out.print("["+a.getActor_no()+" "+a.getAge()+" "+a.getTop()+" "+a.getBottom()+"]"); 테스트용
 					e.append(t.getAge_map().get(a.getAge())+" ");
 					if(a.getGender().equals("남자")) e.append("man ");
 					else if(a.getGender().contains("남") && a.getAge().contains("미만")) e.append("boy ");
@@ -1026,15 +1024,30 @@ public class ActorCaptionGenerator {
 					e.append(t.getClothes_map().get(a.getBottom().trim())+" ");
 					
 					String[] camENG = t.getCamEng();
-					e.append(camENG[j]);
+					e.append(camENG[j]+".");
 					//e.append("==>"+index++); (테스트용)
+
 					System.out.println(e.toString());
 					e.setLength(0);
 				}
 			}
 		}
 		
-		
+		//액터번호만 추출하기 (ex:4224개)
+//		StringBuilder a_no = new StringBuilder(); 
+//		for(Actor a : actor_list) {
+//			for(int i=0;i<a.getAct_pose().size();i++) {
+//				for(int j=0;j<t.getCamKr().length;j++) {
+//					//패스데이터 (0493,0996,1240,1258)
+//					if(a.getActor_no().equals("0493") || a.getActor_no().equals("0996") || a.getActor_no().equals("1240") || a.getActor_no().equals("1258")) continue;
+//					//a_no.append("\"");
+//					a_no.append(a.getActor_no());
+//					//a_no.append("\"");
+//					System.out.println(a_no.toString());
+//					a_no.setLength(0);
+//				}
+//			}
+//		}
 		
 		
 		

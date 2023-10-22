@@ -35,19 +35,21 @@ public class Translator {
          pose_kr_map.put("P09", "양팔 T자 선 자세");
          pose_kr_map.put("P10", "양팔 A자 선 자세");
          
-         pose_eng_map.put("P01", "Standing_straight");
-         pose_eng_map.put("P02", "inverting_both_arms_at_90_degree_at_shoulder_level");
-         pose_eng_map.put("P03", "facing_both_fists_together");
-         pose_eng_map.put("P04", "folding_right_arm");
-         pose_eng_map.put("P05", "raising_up_right_forearm");
-         pose_eng_map.put("P06", "stratching_both_arms_forward");
-         pose_eng_map.put("P07", "sitting_straight");
-         pose_eng_map.put("P08", "sitting_applied");
-         pose_eng_map.put("P09", "posing_T_posture_with_both_arms");
-         pose_eng_map.put("P10", "posing_A_posture_with_both_arms");
+         pose_eng_map.put("P01", "Standing straight");
+         pose_eng_map.put("P02", "inverting both arms at 90 degree at shoulder level");
+         pose_eng_map.put("P03", "facing both fists together");
+         pose_eng_map.put("P04", "folding right arm");
+         pose_eng_map.put("P05", "raising up right forearm");
+         pose_eng_map.put("P06", "stratching both arms forward");
+         pose_eng_map.put("P07", "sitting straight");
+         pose_eng_map.put("P08", "sitting applied");
+         pose_eng_map.put("P09", "posing T posture with both arms");
+         pose_eng_map.put("P10", "posing A posture with both arms");
     	
     	
         clothes_map.put("맨투맨", "sweatshirts");
+        clothes_map.put("후드티", "sweatshirts");
+        
         clothes_map.put("셔츠", "shirts");
         clothes_map.put("니트", "knit");
         
